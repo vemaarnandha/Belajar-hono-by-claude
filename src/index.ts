@@ -111,10 +111,10 @@ app.post("/inventory", async (c) => {
   const body = await c.req.json();
   const newItem:inventory = {
 	id: inv.length > 0 ? inv[inv.length -1].id +1 : 1,
-	name: "exie",
-	type: "Sword",
-	damage: 120,
-	defense: 10
+	name: body.name,
+	type: body.type,
+	damage: body.damage,
+	defense: body.defense
   }
   inv.push(newItem);
   return c.json({ message: "item baru berhasil ditambahkan", item: newItem }, 201);
