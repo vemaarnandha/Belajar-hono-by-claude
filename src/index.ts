@@ -37,7 +37,7 @@ app.get("/characters", (c) => {
 });
 
 // ── GET /characters/:id — lihat satu karakter ────────────────────
-app.get("/characters/:id", (c) => {
+app.get("/characters/:id", async (c) => {
   const id = Number(c.req.param("id"));
   const character = characters.find((x) => x.id === id);
 
@@ -79,7 +79,7 @@ app.put("/characters/:id", async (c) => {
 });
 
 // ── DELETE /characters/:id — hapus karakter ──────────────────────
-app.delete("/characters/:id", (c) => {
+app.delete("/characters/:id", async (c) => {
   const id = Number(c.req.param("id"));
   const index = characters.findIndex((ch) => ch.id === id);
 
